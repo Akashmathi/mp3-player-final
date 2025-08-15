@@ -7,9 +7,7 @@ import { toast } from "sonner";
 import { Toaster } from "./components/ui/sonner";
 import { SignupDialog } from "./components/signup-dialog";
 import { AuthBar } from "./components/auth-bar";
-// --- Added Import for Cloud Sync ---
 import { CloudSyncBar, CloudItem } from "./components/supabase-cloud";
-
 
 // All your original functions and logic are self-contained in this file.
 export type StoredTrack = { id: string; name: string; size: number; type: string; createdAt: number; blob: Blob; };
@@ -70,12 +68,27 @@ export default function App() {
     return () => { cancelled = true; };
   }, []);
 
+  // --- LOGIC CHANGE 1: UPDATED AUTOPLAY LOGIC IN onEnded ---
   React.useEffect(() => {
     const audio = audioRef.current;
     if (!audio) return;
     const onLoaded = () => { setDuration(audio.duration || 0); if (seekOnReadyRef.current != null) { try { audio.currentTime = seekOnReadyRef.current; } catch {} seekOnReadyRef.current = null; } audio.volume = volume; if (wasPlayingOnLoadRef.current) { audio.play().then(() => setIsPlaying(true)).catch(() => setIsPlaying(false)); wasPlayingOnLoadRef.current = false; } };
     const onTime = () => { setCurrentTime(audio.currentTime || 0); persist({ time: audio.currentTime }); };
-    const onEnded = () => { if (loopOne) { audio.currentTime = 0; void audio.play(); return; } const idx = tracks.findIndex((t) => t.id === currentId); const next = idx >= 0 ? tracks[idx + 1] : undefined; if (next) { setCurrentId(next.id); setTimeout(() => setIsPlaying(true)); } else setIsPlaying(false); };
+    const onEnded = () => {
+      if (loopOne) {
+        audio.currentTime = 0;
+        audio.play();
+        return;
+      }
+      const idx = tracks.findIndex((t) => t.id === currentId);
+      const next = idx >= 0 ? tracks[idx + 1] : undefined;
+      if (next) {
+        setCurrentId(next.id);
+        setIsPlaying(true); // Set the intention to play the next track
+      } else {
+        setIsPlaying(false);
+      }
+    };
     audio.addEventListener("loadedmetadata", onLoaded);
     audio.addEventListener("timeupdate", onTime);
     audio.addEventListener("ended", onEnded);
@@ -84,16 +97,27 @@ export default function App() {
     return () => { audio.removeEventListener("loadedmetadata", onLoaded); audio.removeEventListener("timeupdate", onTime); audio.removeEventListener("ended", onEnded); };
   }, [tracks, currentId, loopOne, volume]);
 
+  // --- LOGIC CHANGE 2: THIS EFFECT NOW RESPONDS TO isPlaying STATE TO ENABLE AUTOPLAY ---
   React.useEffect(() => {
     const audio = audioRef.current;
     if (!audio) return;
     const track = tracks.find((t) => t.id === currentId);
-    if (!track) return;
-    audio.src = track.url;
-    audio.load();
+    if (!track) {
+        audio.src = "";
+        return;
+    }
+    if (audio.src !== track.url) {
+        audio.src = track.url;
+        audio.load();
+    }
     persist({ currentId: track.id });
-    if (isPlaying) audio.play().catch(() => {});
-  }, [currentId]);
+
+    if (isPlaying) {
+      audio.play().catch(() => setIsPlaying(false));
+    } else {
+      audio.pause();
+    }
+  }, [currentId, isPlaying]); // Added isPlaying dependency
 
   React.useEffect(() => persist({ loopOne }), [loopOne]);
   React.useEffect(() => persist({ volume }), [volume]);
@@ -111,7 +135,6 @@ export default function App() {
     }
   }
 
-  // --- Added Function to Handle Cloud Data ---
   function onCloudImport(cloudItems: CloudItem[]) {
     const newTracks = cloudItems.map(item => ({
         id: item.id,
@@ -138,7 +161,7 @@ export default function App() {
     if (currentId === id) setCurrentId(list[0]?.id);
   }
 
-  function togglePlay() { const audio = audioRef.current; if (!audio) return; if (isPlaying) { audio.pause(); setIsPlaying(false); } else { audio.play().then(() => setIsPlaying(true)).catch(() => {}); } }
+  function togglePlay() { const audio = audioRef.current; if (!audio || !audio.src) return; setIsPlaying(!isPlaying); }
   function onSeek(t: number) { const audio = audioRef.current; if (!audio) return; try { audio.currentTime = t; setCurrentTime(t); persist({ time: t }); } catch {} }
   function onPrev() { const idx = tracks.findIndex((t) => t.id === currentId); if (idx > 0) { setCurrentId(tracks[idx - 1].id); setIsPlaying(true); } }
   function onNext() { const idx = tracks.findIndex((t) => t.id === currentId); if (idx >= 0 && idx < tracks.length - 1) { setCurrentId(tracks[idx + 1].id); setIsPlaying(true); } }
@@ -151,7 +174,7 @@ export default function App() {
     <div className="container">
       <header>
         <h1>Local MP3 Player</h1>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+        <div className="header-actions">
           <SignupDialog />
           <AuthBar />
           <button
@@ -168,12 +191,9 @@ export default function App() {
           </button>
         </div>
       </header>
-      
+
       <UploadDropzone onFiles={onUpload} />
-      
-      {/* --- Added Cloud Sync Bar Here --- */}
       <CloudSyncBar onImport={onCloudImport} />
-      
       <Toaster />
 
       {tracks.length === 0 ? (
