@@ -1,27 +1,18 @@
 import React from "react";
-import { Button } from "./ui/button";
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "./ui/dialog";
-import { Input } from "./ui/input";
-import { Label } from "./ui/label";
+import ReactDOM from "react-dom"; // Import ReactDOM for Portals
 import { toast } from "sonner";
 import { supabase } from "./supabase-client";
 
 function useSession() {
   const [userEmail, setUserEmail] = React.useState<string | null>(null);
   React.useEffect(() => {
-    let ignore = false;
-    (async () => {
-      const { data } = await supabase.auth.getSession();
-      const email = data.session?.user?.email ?? null;
-      if (!ignore) setUserEmail(email);
-    })();
-    const { data: sub } = supabase.auth.onAuthStateChange((_e, session) => {
+    supabase.auth.getSession().then(({ data: { session } }) => {
       setUserEmail(session?.user?.email ?? null);
     });
-    return () => {
-      sub.subscription.unsubscribe();
-      ignore = true;
-    };
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+      setUserEmail(session?.user?.email ?? null);
+    });
+    return () => subscription.unsubscribe();
   }, []);
   return userEmail;
 }
@@ -32,15 +23,15 @@ export function AuthBar() {
   const [form, setForm] = React.useState({ email: "", password: "" });
   const [loading, setLoading] = React.useState(false);
 
-  async function signIn() {
+  async function signIn(e: React.FormEvent) {
+    e.preventDefault();
     setLoading(true);
     try {
-      const { error } = await supabase.auth.signInWithPassword({ email: form.email, password: form.password });
+      const { error } = await supabase.auth.signInWithPassword(form);
       if (error) throw error;
       toast.success("Signed in");
       setOpen(false);
     } catch (e: any) {
-      console.error(e);
       toast.error(e?.message || "Sign in failed");
     } finally {
       setLoading(false);
@@ -52,38 +43,43 @@ export function AuthBar() {
   }
 
   return (
-    <div className="flex items-center gap-2">
+    <>
       {email ? (
-        <>
-          <span className="text-muted-foreground font-medium">Signed in as {email}</span>
-          <Button size="sm" variant="outline" onClick={signOut}>Sign out</Button>
-        </>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+          <p>Signed in as {email}</p>
+          <button className="btn" onClick={signOut}>Sign Out</button>
+        </div>
       ) : (
-        <Dialog open={open} onOpenChange={setOpen}>
-          <DialogTrigger asChild>
-            <Button size="sm">Sign in</Button>
-          </DialogTrigger>
-          <DialogContent>
-            <DialogHeader>
-              <DialogTitle>Sign in</DialogTitle>
-            </DialogHeader>
-            <div className="grid gap-3">
-              <div className="grid gap-1">
-                <Label htmlFor="email">Email</Label>
-                <Input id="email" type="email" value={form.email} onChange={(e) => setForm((f) => ({ ...f, email: e.target.value }))} />
-              </div>
-              <div className="grid gap-1">
-                <Label htmlFor="password">Password</Label>
-                <Input id="password" type="password" value={form.password} onChange={(e) => setForm((f) => ({ ...f, password: e.target.value }))} />
-              </div>
-              <div className="flex items-center gap-2">
-                <Button onClick={signIn} disabled={loading}>Sign in</Button>
-                <Button variant="secondary" onClick={() => setOpen(false)}>Cancel</Button>
-              </div>
-            </div>
-          </DialogContent>
-        </Dialog>
+        <button className="btn" onClick={() => setOpen(true)}>
+          Sign In
+        </button>
       )}
-    </div>
+
+      {open && !email && ReactDOM.createPortal(
+        <div className="modal-backdrop">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h3>Sign In</h3>
+              <button className="btn icon-btn" onClick={() => setOpen(false)}>X</button>
+            </div>
+            <form onSubmit={signIn} className="form-grid">
+              <div className="form-group">
+                <label htmlFor="signin-email">Email</label>
+                <input id="signin-email" type="email" value={form.email} onChange={(e) => setForm((f) => ({ ...f, email: e.target.value }))} required />
+              </div>
+              <div className="form-group">
+                <label htmlFor="signin-password">Password</label>
+                <input id="signin-password" type="password" value={form.password} onChange={(e) => setForm((f) => ({ ...f, password: e.target.value }))} required />
+              </div>
+              <div className="form-actions">
+                <button className="btn btn-primary" type="submit" disabled={loading}>Sign In</button>
+                <button className="btn" type="button" onClick={() => setOpen(false)}>Cancel</button>
+              </div>
+            </form>
+          </div>
+        </div>,
+        document.body
+      )}
+    </>
   );
 }
