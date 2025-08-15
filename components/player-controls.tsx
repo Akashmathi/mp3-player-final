@@ -1,6 +1,4 @@
 import React from "react";
-import { Button } from "./ui/button";
-import { Slider } from "./ui/slider";
 import { Play, Pause, SkipBack, SkipForward, Repeat1 } from "lucide-react";
 
 export function PlayerControls({
@@ -17,66 +15,60 @@ export function PlayerControls({
   onSeek,
   onVolume,
   onToggleLoopOne,
-}: {
-  isPlaying: boolean;
-  canPrev: boolean;
-  canNext: boolean;
-  currentTime: number;
-  duration: number;
-  volume: number; // 0..1
-  loopOne: boolean;
-  onTogglePlay: () => void;
-  onPrev: () => void;
-  onNext: () => void;
-  onSeek: (t: number) => void;
-  onVolume: (v: number) => void;
-  onToggleLoopOne: () => void;
 }) {
   const timeStr = (s: number) => {
-    const m = Math.floor(s / 60)
-      .toString()
-      .padStart(2, "0");
-    const ss = Math.floor(s % 60)
-      .toString()
-      .padStart(2, "0");
+    if (isNaN(s)) return "00:00";
+    const m = Math.floor(s / 60).toString().padStart(2, "0");
+    const ss = Math.floor(s % 60).toString().padStart(2, "0");
     return `${m}:${ss}`;
   };
 
   return (
-    <div className="flex flex-col gap-3">
-      <div className="flex items-center gap-3">
-        <Button variant="secondary" onClick={onPrev} disabled={!canPrev}>
+    <div className="player-controls">
+      <div className="player-buttons">
+        <button className="btn icon-btn" onClick={onPrev} disabled={!canPrev}>
           <SkipBack size={16} />
-        </Button>
-        <Button onClick={onTogglePlay}>{isPlaying ? <Pause size={16} /> : <Play size={16} />}</Button>
-        <Button variant="secondary" onClick={onNext} disabled={!canNext}>
+        </button>
+        <button className="btn icon-btn" onClick={onTogglePlay}>
+          {isPlaying ? <Pause size={16} /> : <Play size={16} />}
+        </button>
+        <button className="btn icon-btn" onClick={onNext} disabled={!canNext}>
           <SkipForward size={16} />
-        </Button>
-        <Button variant={loopOne ? "default" : "secondary"} onClick={onToggleLoopOne} title="Loop current track">
+        </button>
+        <button
+          className="btn icon-btn"
+          onClick={onToggleLoopOne}
+          title="Loop current track"
+          style={{ backgroundColor: loopOne ? '#6200ea' : '' }}
+        >
           <Repeat1 size={16} />
-        </Button>
-        <div className="flex items-center gap-2 ml-auto w-40">
+        </button>
+        <div className="volume-control">
           <span>Vol</span>
-          <Slider
+          <input
+            type="range"
+            className="volume-slider"
             min={0}
             max={100}
             step={1}
-            value={[Math.round(volume * 100)]}
-            onValueChange={(v) => onVolume((v?.[0] ?? 100) / 100)}
+            value={Math.round(volume * 100)}
+            onChange={(e) => onVolume(parseInt(e.target.value) / 100)}
           />
         </div>
       </div>
       <div>
-        <div className="flex items-center gap-2">
-          <span className="w-10 text-muted-foreground">{timeStr(currentTime)}</span>
-          <Slider
+        <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+          <span>{timeStr(currentTime)}</span>
+          <input
+            type="range"
+            className="time-slider"
             min={0}
-            max={Math.max(1, Math.floor(duration))}
+            max={duration || 0}
             step={1}
-            value={[Math.min(Math.floor(currentTime), Math.floor(duration))]}
-            onValueChange={(v) => onSeek(Math.min(v?.[0] ?? 0, duration))}
+            value={currentTime || 0}
+            onChange={(e) => onSeek(parseInt(e.target.value))}
           />
-          <span className="w-10 text-muted-foreground text-right">{timeStr(duration)}</span>
+          <span>{timeStr(duration)}</span>
         </div>
       </div>
     </div>

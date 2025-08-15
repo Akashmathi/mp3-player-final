@@ -1,4 +1,4 @@
-import { createClient } from "@supabase/supabase-js@2.49.8";
+import { createClient } from "@supabase/supabase-js";
 import { projectId, publicAnonKey } from "../utils/supabase/info";
 
 // Singleton Supabase client for the frontend

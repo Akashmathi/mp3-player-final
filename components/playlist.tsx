@@ -1,5 +1,4 @@
 import React from "react";
-import { Button } from "./ui/button";
 import { GripVertical, Play, Pause, Trash2 } from "lucide-react";
 import { useDrag, useDrop, DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
@@ -25,14 +24,13 @@ function Row({ item, index, move, onPlay, onDelete }: RowProps) {
   const [, drop] = useDrop({
     accept: ITEM_TYPE,
     hover(dragItem: { index: number }) {
-      if (!ref.current) return;
-      if (dragItem.index === index) return;
+      if (!ref.current || dragItem.index === index) return;
       move(dragItem.index, index);
       dragItem.index = index;
     },
   });
 
-  const [{ isDragging }, drag, preview] = useDrag({
+  const [{ isDragging }, drag] = useDrag({
     type: ITEM_TYPE,
     item: { index },
     collect: (monitor) => ({ isDragging: monitor.isDragging() }),
@@ -41,68 +39,54 @@ function Row({ item, index, move, onPlay, onDelete }: RowProps) {
   drag(drop(ref));
 
   return (
-    <div
-      ref={ref}
-      className={`flex items-center gap-2 p-2 rounded-md border ${item.active ? "bg-accent" : "bg-card"}`}
-      style={{ opacity: isDragging ? 0.5 : 1 }}
-    >
-      <div ref={preview as any} className="cursor-grab select-none text-muted-foreground">
-        <GripVertical size={16} />
+    <div ref={ref} className="playlist-item" style={{ opacity: isDragging ? 0.5 : 1 }}>
+      <GripVertical size={16} style={{ cursor: 'grab' }} />
+      <div className="playlist-item-name">
+        <p>{item.name}</p>
       </div>
-      <div className="flex-1 truncate">
-        <p className="truncate">{item.name}</p>
-      </div>
-      <div className="flex items-center gap-2">
-        <Button size="sm" variant="secondary" onClick={() => onPlay(item.id)}>
-          {item.active ? <Pause size={16} /> : <Play size={16} />}
-        </Button>
-        <Button size="sm" variant="ghost" onClick={() => onDelete(item.id)}>
-          <Trash2 size={16} />
-        </Button>
-      </div>
+      <button className="btn icon-btn" onClick={() => onPlay(item.id)}>
+        {item.active ? <Pause size={16} /> : <Play size={16} />}
+      </button>
+      <button className="btn icon-btn" onClick={() => onDelete(item.id)}>
+        <Trash2 size={16} />
+      </button>
     </div>
   );
 }
 
-export function Playlist({
-  items,
-  onReorder,
-  onPlay,
-  onDelete,
-}: {
+export function Playlist({ items, onReorder, onPlay, onDelete }: {
   items: PlaylistItem[];
   onReorder: (newItems: PlaylistItem[]) => void;
   onPlay: (id: string) => void;
   onDelete: (id: string) => void;
 }) {
-  const [local, setLocal] = React.useState(items);
+  const [localItems, setLocalItems] = React.useState(items);
 
-  React.useEffect(() => setLocal(items), [items]);
+  React.useEffect(() => {
+    setLocalItems(items);
+  }, [items]);
 
-  const move = React.useCallback(
+  const moveItem = React.useCallback(
     (from: number, to: number) => {
-      setLocal((prev) => {
+      setLocalItems((prev) => {
         const next = [...prev];
-        const [spliced] = next.splice(from, 1);
-        next.splice(to, 0, spliced);
+        const [moved] = next.splice(from, 1);
+        next.splice(to, 0, moved);
         return next;
       });
     },
     []
   );
 
-  React.useEffect(() => {
-    if (local.length !== items.length) return;
-    if (local.some((x, i) => x.id !== items[i]?.id)) {
-      onReorder(local);
-    }
-  }, [local]);
+  const handleDragEnd = () => {
+    onReorder(localItems);
+  };
 
   return (
     <DndProvider backend={HTML5Backend}>
-      <div className="flex flex-col gap-2">
-        {local.map((it, idx) => (
-          <Row key={it.id} item={it} index={idx} move={move} onPlay={onPlay} onDelete={onDelete} />
+      <div className="playlist" onMouseUp={handleDragEnd}>
+        {localItems.map((it, idx) => (
+          <Row key={it.id} item={it} index={idx} move={moveItem} onPlay={onPlay} onDelete={onDelete} />
         ))}
       </div>
     </DndProvider>

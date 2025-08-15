@@ -60,7 +60,6 @@ export async function addFiles(files: File[]): Promise<StoredTrack[]> {
     )
   );
 
-  // If there is an existing order, append; else create order from all ids
   const existingOrder = (await getOrder().catch(() => [])) as string[];
   const newOrder = existingOrder && existingOrder.length ? [...existingOrder, ...toAdd.map((t) => t.id)] : undefined;
   if (newOrder) await setOrder(newOrder);
@@ -113,7 +112,6 @@ export type TrackUI = {
 
 export async function materializeTracksWithURLs(): Promise<TrackUI[]> {
   const [tracks, order] = await Promise.all([getAllTracks(), getOrder().catch(() => [])]);
-  // Create object URLs and sort by saved order if present
   const map = new Map(tracks.map((t) => [t.id, t] as const));
   const ordered = (order.length ? order : tracks.map((t) => t.id))
     .map((id) => map.get(id))

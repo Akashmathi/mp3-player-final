@@ -3,7 +3,7 @@ import { Button } from "./ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "./ui/dialog";
 import { Input } from "./ui/input";
 import { Label } from "./ui/label";
-import { toast } from "sonner@2.0.3";
+import { toast } from "sonner";
 import { supabase } from "./supabase-client";
 
 function useSession() {
@@ -55,7 +55,7 @@ export function AuthBar() {
     <div className="flex items-center gap-2">
       {email ? (
         <>
-          <span className="text-muted-foreground">Signed in as {email}</span>
+          <span className="text-muted-foreground font-medium">Signed in as {email}</span>
           <Button size="sm" variant="outline" onClick={signOut}>Sign out</Button>
         </>
       ) : (
