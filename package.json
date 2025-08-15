@@ -6,25 +6,17 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings-0",
     "preview": "vite preview"
   },
-  
   "dependencies": {
-    "@radix-ui/react-dialog": "^1.1.15",
-    "@radix-ui/react-label": "^2.1.7",
-    "@radix-ui/react-slot": "^1.2.3",
     "@supabase/supabase-js": "^2.43.5",
-    "class-variance-authority": "^0.7.1",
-    "clsx": "^2.1.1",
     "lucide-react": "^0.395.0",
-    "next-themes": "^0.4.6",
     "react": "^18.3.1",
     "react-dnd": "^16.0.1",
     "react-dnd-html5-backend": "^16.0.1",
     "react-dom": "^18.3.1",
-    "sonner": "^1.5.0",
-    "tailwind-merge": "^3.3.1"
+    "sonner": "^1.5.0"
   },
   "devDependencies": {
     "@types/react": "^18.3.3",
