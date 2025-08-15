@@ -60,31 +60,29 @@ export function Playlist({ items, onReorder, onPlay, onDelete }: {
   onPlay: (id: string) => void;
   onDelete: (id: string) => void;
 }) {
+  // Use a state for the items to allow react-dnd to re-render on hover
   const [localItems, setLocalItems] = React.useState(items);
-
   React.useEffect(() => {
     setLocalItems(items);
   }, [items]);
 
-  const moveItem = React.useCallback(
-    (from: number, to: number) => {
-      setLocalItems((prev) => {
-        const next = [...prev];
-        const [moved] = next.splice(from, 1);
-        next.splice(to, 0, moved);
-        return next;
-      });
-    },
-    []
-  );
+  const moveItem = React.useCallback((from: number, to: number) => {
+    setLocalItems(prev => {
+      const next = [...prev];
+      const [moved] = next.splice(from, 1);
+      next.splice(to, 0, moved);
+      return next;
+    });
+  }, []);
 
-  const handleDragEnd = () => {
+  // Callback to parent when dragging stops
+  const handleDrop = () => {
     onReorder(localItems);
   };
 
   return (
     <DndProvider backend={HTML5Backend}>
-      <div className="playlist" onMouseUp={handleDragEnd}>
+      <div className="playlist" onDrop={handleDrop}>
         {localItems.map((it, idx) => (
           <Row key={it.id} item={it} index={idx} move={moveItem} onPlay={onPlay} onDelete={onDelete} />
         ))}
