@@ -1,0 +1,2 @@
+src/components/auth-bar.tsx(18,60): error TS7006: Parameter '_e' implicitly has an 'any' type.
+src/components/auth-bar.tsx(18,64): error TS7006: Parameter 'session' implicitly has an 'any' type.

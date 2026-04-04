@@ -1,0 +1,12 @@
+{
+  "expo": {
+    "extra": {
+      "eas": {
+        "projectId": "0249fac3-dfc7-40d4-9a9c-e6161e7a721b"
+      }
+    },
+    "android": {
+      "package": "com.akash_1705.finalmp3player"
+    }
+  }
+}

@@ -1,0 +1,17 @@
+[36mvite v7.1.2 [32mbuilding for production...[36m[39m
+transforming...
+[33mnode_modules/sonner/dist/index.mjs (1:0): Module level directives cause errors when bundled, "use client" in "node_modules/sonner/dist/index.mjs" was ignored.[39m
+[33msrc/components/ui/sonner.tsx (1:0): Error when using sourcemap for reporting an error: Can't resolve original location of error.[39m
+[33msrc/components/ui/sonner.tsx (1:0): Module level directives cause errors when bundled, "use client" in "src/components/ui/sonner.tsx" was ignored.[39m
+[33msrc/components/ui/label.tsx (1:0): Error when using sourcemap for reporting an error: Can't resolve original location of error.[39m
+[33msrc/components/ui/label.tsx (1:0): Module level directives cause errors when bundled, "use client" in "src/components/ui/label.tsx" was ignored.[39m
+[33msrc/components/ui/dialog.tsx (1:0): Error when using sourcemap for reporting an error: Can't resolve original location of error.[39m
+[33msrc/components/ui/dialog.tsx (1:0): Module level directives cause errors when bundled, "use client" in "src/components/ui/dialog.tsx" was ignored.[39m
+[33mnode_modules/@radix-ui/react-label/dist/index.mjs (1:0): Module level directives cause errors when bundled, "use client" in "node_modules/@radix-ui/react-label/dist/index.mjs" was ignored.[39m
+[33mnode_modules/@radix-ui/react-dialog/dist/index.mjs (1:0): Module level directives cause errors when bundled, "use client" in "node_modules/@radix-ui/react-dialog/dist/index.mjs" was ignored.[39m
+[33mnode_modules/@radix-ui/react-portal/dist/index.mjs (1:0): Module level directives cause errors when bundled, "use client" in "node_modules/@radix-ui/react-portal/dist/index.mjs" was ignored.[39m
+[33mnode_modules/@radix-ui/react-dismissable-layer/dist/index.mjs (1:0): Module level directives cause errors when bundled, "use client" in "node_modules/@radix-ui/react-dismissable-layer/dist/index.mjs" was ignored.[39m
+[33mnode_modules/@radix-ui/react-presence/dist/index.mjs (1:0): Module level directives cause errors when bundled, "use client" in "node_modules/@radix-ui/react-presence/dist/index.mjs" was ignored.[39m
+[33mnode_modules/@radix-ui/react-focus-scope/dist/index.mjs (1:0): Module level directives cause errors when bundled, "use client" in "node_modules/@radix-ui/react-focus-scope/dist/index.mjs" was ignored.[39m
+[33mnode_modules/@radix-ui/react-focus-guards/dist/index.mjs (1:0): Module level directives cause errors when bundled, "use client" in "node_modules/@radix-ui/react-focus-guards/dist/index.mjs" was ignored.[39m
+[32m✓[39m 1969 modules transformed.

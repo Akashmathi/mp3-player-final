@@ -1,0 +1,9 @@
+=== Starting deployment === 
+--- Git init --- 
+Initialized empty Git repository in C:/Users/akash/Downloads/final-mp3-player/.git/
+Exit: 0 
+--- Git remote --- 
+error: No such remote: 'origin'
+Exit: 0 
+--- Git config --- 
+--- Git add --- 
