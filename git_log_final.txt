@@ -1,0 +1,5 @@
+﻿commit 05ec12177cd6e1edb4cf26b73a4876711d5c09b8
+Author: Akashmathi <akashmathi777@gmail.com>
+Date:   Sun Apr 5 23:56:12 2026 +0530
+
+    Fix production blank screen: replace DndProvider, polyfill process.env, dynamic import
