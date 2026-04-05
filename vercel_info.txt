@@ -1,0 +1,1 @@
+Error: "info" is not a valid target directory or subcommand. Did you mean "i"?

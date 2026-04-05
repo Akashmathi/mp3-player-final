@@ -95,12 +95,10 @@ export function Playlist({ items, onReorder, onPlay, onDelete }: {
   };
 
   return (
-    <DndProvider backend={HTML5Backend}>
-      <div className="playlist" onMouseUp={handleDragEnd}>
-        {localItems.map((it, idx) => (
-          <Row key={it.id} item={it} index={idx} move={moveItem} onPlay={onPlay} onDelete={onDelete} />
-        ))}
-      </div>
-    </DndProvider>
+    <div className="playlist" onMouseUp={handleDragEnd}>
+      {localItems.map((it, idx) => (
+        <Row key={it.id} item={it} index={idx} move={moveItem} onPlay={onPlay} onDelete={onDelete} />
+      ))}
+    </div>
   );
 }

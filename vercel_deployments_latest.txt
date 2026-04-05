@@ -1,0 +1,37 @@
+Fetching deployments in akashmathi777-4357s-projects
+> Deployments for akashmathi777-4357s-projects/final-mp3 [295ms]
+
+  Age      Project                                    Deployment                                                              Status      Environment     Duration     Username               
+  1m       akashmathi777-4357s-projects/final-mp3     https://final-mp3-4tpe6h3jn-akashmathi777-4357s-projects.vercel.app     ● Ready     Production      56s          akashmathi777-4357     
+  4m       akashmathi777-4357s-projects/final-mp3     https://final-mp3-1rbnm113q-akashmathi777-4357s-projects.vercel.app     ● Error     Production      47s          akashmathi777-4357     
+  4m       akashmathi777-4357s-projects/final-mp3     https://final-mp3-25poh6kf9-akashmathi777-4357s-projects.vercel.app     ● Error     Production      42s          akashmathi777-4357     
+  7m       akashmathi777-4357s-projects/final-mp3     https://final-mp3-as1uakmqw-akashmathi777-4357s-projects.vercel.app     ● Error     Production      45s          akashmathi777-4357     
+  1h       akashmathi777-4357s-projects/final-mp3     https://final-mp3-ndwf5i0lv-akashmathi777-4357s-projects.vercel.app     ● Ready     Production      53s          akashmathi777-4357     
+  2h       akashmathi777-4357s-projects/final-mp3     https://final-mp3-8ja4rbqn5-akashmathi777-4357s-projects.vercel.app     ● Ready     Production      54s          akashmathi777-4357     
+  2h       akashmathi777-4357s-projects/final-mp3     https://final-mp3-kpcq4zi5a-akashmathi777-4357s-projects.vercel.app     ● Error     Production      50s          akashmathi777-4357     
+  2h       akashmathi777-4357s-projects/final-mp3     https://final-mp3-2budi5bib-akashmathi777-4357s-projects.vercel.app     ● Ready     Production      57s          akashmathi777-4357     
+  2h       akashmathi777-4357s-projects/final-mp3     https://final-mp3-pxnprdi34-akashmathi777-4357s-projects.vercel.app     ● Ready     Production      53s          akashmathi777-4357     
+  2h       akashmathi777-4357s-projects/final-mp3     https://final-mp3-lpso8y17k-akashmathi777-4357s-projects.vercel.app     ● Ready     Production      57s          akashmathi777-4357     
+  2h       akashmathi777-4357s-projects/final-mp3     https://final-mp3-6y9tuxjzg-akashmathi777-4357s-projects.vercel.app     ● Ready     Production      53s          akashmathi777-4357     
+  2h       akashmathi777-4357s-projects/final-mp3     https://final-mp3-h8va8ti49-akashmathi777-4357s-projects.vercel.app     ● Ready     Production      60s          akashmathi777-4357     
+  2h       akashmathi777-4357s-projects/final-mp3     https://final-mp3-ju7jofa52-akashmathi777-4357s-projects.vercel.app     ● Error     Preview         52s          akashmathi777-4357     
+  230d     akashmathi777-4357s-projects/final-mp3     https://final-mp3-k6frjg6cc-akashmathi777-4357s-projects.vercel.app     ● Ready     Production      11s          akashmathi777-4357     
+  231d     akashmathi777-4357s-projects/final-mp3     https://final-mp3-yhdluz6pt-akashmathi777-4357s-projects.vercel.app     ● Ready     Production      12s          akashmathi777-4357     
+  231d     akashmathi777-4357s-projects/final-mp3     https://final-mp3-ige8kwxne-akashmathi777-4357s-projects.vercel.app     ● Ready     Production      11s          akashmathi777-4357     
+
+https://final-mp3-4tpe6h3jn-akashmathi777-4357s-projects.vercel.app
+https://final-mp3-1rbnm113q-akashmathi777-4357s-projects.vercel.app
+https://final-mp3-25poh6kf9-akashmathi777-4357s-projects.vercel.app
+https://final-mp3-as1uakmqw-akashmathi777-4357s-projects.vercel.app
+https://final-mp3-ndwf5i0lv-akashmathi777-4357s-projects.vercel.app
+https://final-mp3-8ja4rbqn5-akashmathi777-4357s-projects.vercel.app
+https://final-mp3-kpcq4zi5a-akashmathi777-4357s-projects.vercel.app
+https://final-mp3-2budi5bib-akashmathi777-4357s-projects.vercel.app
+https://final-mp3-pxnprdi34-akashmathi777-4357s-projects.vercel.app
+https://final-mp3-lpso8y17k-akashmathi777-4357s-projects.vercel.app
+https://final-mp3-6y9tuxjzg-akashmathi777-4357s-projects.vercel.app
+https://final-mp3-h8va8ti49-akashmathi777-4357s-projects.vercel.app
+https://final-mp3-ju7jofa52-akashmathi777-4357s-projects.vercel.app
+https://final-mp3-k6frjg6cc-akashmathi777-4357s-projects.vercel.app
+https://final-mp3-yhdluz6pt-akashmathi777-4357s-projects.vercel.app
+https://final-mp3-ige8kwxne-akashmathi777-4357s-projects.vercel.app

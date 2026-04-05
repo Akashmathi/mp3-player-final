@@ -1,0 +1,38 @@
+Retrieving project…
+Deploying akashmathi777-4357s-projects/final-mp3
+Uploading [--------------------] (0.0B/79B)
+Uploading [====================] (79.0B/79B)
+Inspect: https://vercel.com/akashmathi777-4357s-projects/final-mp3/7Fic56aPxbDtPgJk2uzYjfNynzTz [4s]
+Production: https://final-mp3-1rbnm113q-akashmathi777-4357s-projects.vercel.app [4s]
+https://final-mp3-1rbnm113q-akashmathi777-4357s-projects.vercel.appBuilding...
+Building...
+Building: Running build in Washington, D.C., USA (East) – iad1
+Building: Build machine configuration: 2 cores, 8 GB
+Building: Retrieving list of deployment files...
+Building: Downloading 908 deployment files...
+Building: Restored build cache from previous deployment (ELWH7fRZJz5QP4koGc9yxefjiWDe)
+Building: Running "vercel build"
+Building: Vercel CLI 50.38.2
+Building: Installing dependencies...
+Building: npm warn ERESOLVE overriding peer dependency
+Building: npm warn While resolving: @expo/cli@55.0.21
+Building: npm warn Found: peer react-native@"*" from @expo/metro-runtime@55.0.9
+Building: npm warn node_modules/@expo/metro-runtime
+Building: npm warn   @expo/metro-runtime@"^55.0.6" from the root project
+Building: npm warn
+Building: npm warn Could not resolve dependency:
+Building: npm warn peer react-native@"*" from @expo/metro-runtime@55.0.9
+Building: npm warn node_modules/@expo/metro-runtime
+Building: npm warn   @expo/metro-runtime@"^55.0.6" from the root project
+Building: npm warn deprecated rimraf@3.0.2: Rimraf versions prior to v4 are no longer supported
+Building: npm warn deprecated inflight@1.0.6: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful.
+Building: npm warn deprecated glob@7.2.3: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
+Building: npm warn deprecated glob@7.2.3: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
+Building: npm warn deprecated glob@7.2.3: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
+Building: changed 496 packages in 34s
+Building: 94 packages are looking for funding
+Building: run `npm fund` for details
+Building: Running "npm run build"
+Building: > final-mp3-player@0.0.0 build
+Building: > tsc -b && vite build
+Error: Command "npm run build" exited with 2

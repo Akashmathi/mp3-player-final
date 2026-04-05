@@ -7,3 +7,388 @@ error: No such remote: 'origin'
 Exit: 0 
 --- Git config --- 
 --- Git add --- 
+warning: in the working copy of '.gitignore', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'README.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app.json', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'build_fixed_config.txt', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'build_full.txt', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'build_no_plugins.txt', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'build_no_tailwind.txt', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'build_output.txt', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'build_real_final_test.txt', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'build_real_no_css.txt', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'build_test_app_basic.txt', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'build_test_cloud.txt', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'build_test_icons.txt', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'build_test_main.txt', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'build_test_player.txt', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'build_test_playlist.txt', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'build_test_ui.txt', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'build_try2.txt', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'debug-browser.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'deploy.bat', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'deploy_log.txt', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'eas.json', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'eslint.config.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'git_out.txt', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'html_direct.txt', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'html_utf8.txt', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'index.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'mobile-app-new/.gitignore', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'mobile-app-new/App.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'mobile-app-new/app.json', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'mobile-app-new/index.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'mobile-app-new/package.json', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'mobile-app-new/tsconfig.json', LF will be replaced by CRLF the next time Git touches it
+warning: adding embedded git repository: mobile-app
+hint: You've added another git repository inside your current repository.
+hint: Clones of the outer repository will not contain the contents of
+hint: the embedded repository and will not know how to obtain it.
+hint: If you meant to add a submodule, use:
+hint: 
+hint: 	git submodule add <url> mobile-app
+hint: 
+hint: If you added this path by mistake, you can remove it from the
+hint: index with:
+hint: 
+hint: 	git rm --cached mobile-app
+hint: 
+hint: See "git help submodule" for more information.
+warning: in the working copy of 'package-lock.json', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'package.json', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'prod-debug-browser.cjs', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'prod-debug.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/App.css', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/App.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/components/auth-bar.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/components/cloud-sync.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/components/empty-state.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/components/figma/ImageWithFallback.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/components/player-controls.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/components/playlist.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/components/signup-dialog.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/components/supabase-client.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/components/supabase-cloud.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/components/ui/alert.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/components/ui/badge.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/components/ui/breadcrumb.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/components/ui/button.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/components/ui/card.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/components/ui/dialog.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/components/ui/input.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/components/ui/label.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/components/ui/pagination.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/components/ui/sheet.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/components/ui/skeleton.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/components/ui/sonner.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/components/ui/table.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/components/ui/textarea.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/components/ui/use-mobile.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/components/ui/utils.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/components/upload-dropzone.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/components/use-audio-library.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/components/youtube-player.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/components/youtube-search.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/index.css', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/lib/db.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/lib/youtube.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/main.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/styles/globals.css', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/supabase/functions/server/index.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/supabase/functions/server/kv_store.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/test-app-basic.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/test-cloud.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/test-icons.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/test-main.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/test-player.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/test-playlist.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/test-ui.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/utils/supabase/info.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/utils/supabase/info.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/vite-env.d.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'test-app/.gitignore', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'test-app/App.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'test-app/app.json', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'test-app/index.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'test-app/package.json', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'test-app/tsconfig.json', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'tsconfig.app.json', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'tsconfig.json', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'tsconfig.node.json', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'vercel_final_out.txt', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'vercel_out.txt', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'vercel_prod_out.txt', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'vite.config.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'vite_dev_out.txt', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'vite_output.txt', LF will be replaced by CRLF the next time Git touches it
+Exit: 0 
+--- Git status --- 
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+	new file:   .gitignore
+	new file:   README.md
+	new file:   app.json
+	new file:   build_fixed_config.txt
+	new file:   build_full.txt
+	new file:   build_no_plugins.txt
+	new file:   build_no_tailwind.txt
+	new file:   build_output.txt
+	new file:   build_real_final_test.txt
+	new file:   build_real_no_css.txt
+	new file:   build_really_final.txt
+	new file:   build_test_app_basic.txt
+	new file:   build_test_cloud.txt
+	new file:   build_test_icons.txt
+	new file:   build_test_main.txt
+	new file:   build_test_player.txt
+	new file:   build_test_playlist.txt
+	new file:   build_test_ui.txt
+	new file:   build_try2.txt
+	new file:   debug-browser.js
+	new file:   deploy.bat
+	new file:   deploy_log.txt
+	new file:   eas.json
+	new file:   eslint.config.js
+	new file:   git_out.txt
+	new file:   html_direct.txt
+	new file:   html_output.txt
+	new file:   html_utf8.txt
+	new file:   index.html
+	new file:   js_output.txt
+	new file:   ls_output.txt
+	new file:   mobile-app
+	new file:   mobile-app-new/.gitignore
+	new file:   mobile-app-new/App.tsx
+	new file:   mobile-app-new/app.json
+	new file:   mobile-app-new/assets/android-icon-background.png
+	new file:   mobile-app-new/assets/android-icon-foreground.png
+	new file:   mobile-app-new/assets/android-icon-monochrome.png
+	new file:   mobile-app-new/assets/favicon.png
+	new file:   mobile-app-new/assets/icon.png
+	new file:   mobile-app-new/assets/splash-icon.png
+	new file:   mobile-app-new/index.ts
+	new file:   mobile-app-new/package.json
+	new file:   mobile-app-new/tsconfig.json
+	new file:   package-lock.json
+	new file:   package.json
+	new file:   prod-debug-browser.cjs
+	new file:   prod-debug.js
+	new file:   prod_error_output.txt
+	new file:   public/vite.svg
+	new file:   src/App.css
+	new file:   src/App.tsx
+	new file:   src/assets/react.svg
+	new file:   src/components/auth-bar.tsx
+	new file:   src/components/cloud-sync.tsx
+	new file:   src/components/empty-state.tsx
+	new file:   src/components/figma/ImageWithFallback.tsx
+	new file:   src/components/player-controls.tsx
+	new file:   src/components/playlist.tsx
+	new file:   src/components/signup-dialog.tsx
+	new file:   src/components/supabase-client.tsx
+	new file:   src/components/supabase-cloud.tsx
+	new file:   src/components/ui/alert.tsx
+	new file:   src/components/ui/badge.tsx
+	new file:   src/components/ui/breadcrumb.tsx
+	new file:   src/components/ui/button.tsx
+	new file:   src/components/ui/card.tsx
+	new file:   src/components/ui/dialog.tsx
+	new file:   src/components/ui/input.tsx
+	new file:   src/components/ui/label.tsx
+	new file:   src/components/ui/pagination.tsx
+	new file:   src/components/ui/sheet.tsx
+	new file:   src/components/ui/skeleton.tsx
+	new file:   src/components/ui/sonner.tsx
+	new file:   src/components/ui/table.tsx
+	new file:   src/components/ui/textarea.tsx
+	new file:   src/components/ui/use-mobile.ts
+	new file:   src/components/ui/utils.ts
+	new file:   src/components/upload-dropzone.tsx
+	new file:   src/components/use-audio-library.tsx
+	new file:   src/components/youtube-player.tsx
+	new file:   src/components/youtube-search.tsx
+	new file:   src/index.css
+	new file:   src/lib/db.ts
+	new file:   src/lib/youtube.ts
+	new file:   src/main.tsx
+	new file:   src/styles/globals.css
+	new file:   src/supabase/functions/server/index.tsx
+	new file:   src/supabase/functions/server/kv_store.tsx
+	new file:   src/test-app-basic.tsx
+	new file:   src/test-cloud.tsx
+	new file:   src/test-icons.tsx
+	new file:   src/test-main.tsx
+	new file:   src/test-player.tsx
+	new file:   src/test-playlist.tsx
+	new file:   src/test-ui.tsx
+	new file:   src/utils/supabase/info.ts
+	new file:   src/utils/supabase/info.tsx
+	new file:   src/vite-env.d.ts
+	new file:   test-app/.gitignore
+	new file:   test-app/App.tsx
+	new file:   test-app/app.json
+	new file:   test-app/assets/android-icon-background.png
+	new file:   test-app/assets/android-icon-foreground.png
+	new file:   test-app/assets/android-icon-monochrome.png
+	new file:   test-app/assets/favicon.png
+	new file:   test-app/assets/icon.png
+	new file:   test-app/assets/splash-icon.png
+	new file:   test-app/index.ts
+	new file:   test-app/package.json
+	new file:   test-app/tsconfig.json
+	new file:   ts_error.txt
+	new file:   ts_out.txt
+	new file:   tsconfig.app.json
+	new file:   tsconfig.json
+	new file:   tsconfig.node.json
+	new file:   vercel_final_out.txt
+	new file:   vercel_out.txt
+	new file:   vercel_prod_out.txt
+	new file:   vercel_version.txt
+	new file:   vite.config.ts
+	new file:   vite_dev_out.txt
+	new file:   vite_output.txt
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+  (commit or discard the untracked or modified content in submodules)
+	modified:   deploy_log.txt
+	modified:   mobile-app (modified content, untracked content)
+
+--- Git commit --- 
+[master (root-commit) fcc7667] Deploy: MP3 Player with YouTube search and cloud sync
+ 123 files changed, 9955 insertions(+)
+ create mode 100644 .gitignore
+ create mode 100644 README.md
+ create mode 100644 app.json
+ create mode 100644 build_fixed_config.txt
+ create mode 100644 build_full.txt
+ create mode 100644 build_no_plugins.txt
+ create mode 100644 build_no_tailwind.txt
+ create mode 100644 build_output.txt
+ create mode 100644 build_real_final_test.txt
+ create mode 100644 build_real_no_css.txt
+ create mode 100644 build_really_final.txt
+ create mode 100644 build_test_app_basic.txt
+ create mode 100644 build_test_cloud.txt
+ create mode 100644 build_test_icons.txt
+ create mode 100644 build_test_main.txt
+ create mode 100644 build_test_player.txt
+ create mode 100644 build_test_playlist.txt
+ create mode 100644 build_test_ui.txt
+ create mode 100644 build_try2.txt
+ create mode 100644 debug-browser.js
+ create mode 100644 deploy.bat
+ create mode 100644 deploy_log.txt
+ create mode 100644 eas.json
+ create mode 100644 eslint.config.js
+ create mode 100644 git_out.txt
+ create mode 100644 html_direct.txt
+ create mode 100644 html_output.txt
+ create mode 100644 html_utf8.txt
+ create mode 100644 index.html
+ create mode 100644 js_output.txt
+ create mode 100644 ls_output.txt
+ create mode 160000 mobile-app
+ create mode 100644 mobile-app-new/.gitignore
+ create mode 100644 mobile-app-new/App.tsx
+ create mode 100644 mobile-app-new/app.json
+ create mode 100644 mobile-app-new/assets/android-icon-background.png
+ create mode 100644 mobile-app-new/assets/android-icon-foreground.png
+ create mode 100644 mobile-app-new/assets/android-icon-monochrome.png
+ create mode 100644 mobile-app-new/assets/favicon.png
+ create mode 100644 mobile-app-new/assets/icon.png
+ create mode 100644 mobile-app-new/assets/splash-icon.png
+ create mode 100644 mobile-app-new/index.ts
+ create mode 100644 mobile-app-new/package.json
+ create mode 100644 mobile-app-new/tsconfig.json
+ create mode 100644 package-lock.json
+ create mode 100644 package.json
+ create mode 100644 prod-debug-browser.cjs
+ create mode 100644 prod-debug.js
+ create mode 100644 prod_error_output.txt
+ create mode 100644 public/vite.svg
+ create mode 100644 src/App.css
+ create mode 100644 src/App.tsx
+ create mode 100644 src/assets/react.svg
+ create mode 100644 src/components/auth-bar.tsx
+ create mode 100644 src/components/cloud-sync.tsx
+ create mode 100644 src/components/empty-state.tsx
+ create mode 100644 src/components/figma/ImageWithFallback.tsx
+ create mode 100644 src/components/player-controls.tsx
+ create mode 100644 src/components/playlist.tsx
+ create mode 100644 src/components/signup-dialog.tsx
+ create mode 100644 src/components/supabase-client.tsx
+ create mode 100644 src/components/supabase-cloud.tsx
+ create mode 100644 src/components/ui/alert.tsx
+ create mode 100644 src/components/ui/badge.tsx
+ create mode 100644 src/components/ui/breadcrumb.tsx
+ create mode 100644 src/components/ui/button.tsx
+ create mode 100644 src/components/ui/card.tsx
+ create mode 100644 src/components/ui/dialog.tsx
+ create mode 100644 src/components/ui/input.tsx
+ create mode 100644 src/components/ui/label.tsx
+ create mode 100644 src/components/ui/pagination.tsx
+ create mode 100644 src/components/ui/sheet.tsx
+ create mode 100644 src/components/ui/skeleton.tsx
+ create mode 100644 src/components/ui/sonner.tsx
+ create mode 100644 src/components/ui/table.tsx
+ create mode 100644 src/components/ui/textarea.tsx
+ create mode 100644 src/components/ui/use-mobile.ts
+ create mode 100644 src/components/ui/utils.ts
+ create mode 100644 src/components/upload-dropzone.tsx
+ create mode 100644 src/components/use-audio-library.tsx
+ create mode 100644 src/components/youtube-player.tsx
+ create mode 100644 src/components/youtube-search.tsx
+ create mode 100644 src/index.css
+ create mode 100644 src/lib/db.ts
+ create mode 100644 src/lib/youtube.ts
+ create mode 100644 src/main.tsx
+ create mode 100644 src/styles/globals.css
+ create mode 100644 src/supabase/functions/server/index.tsx
+ create mode 100644 src/supabase/functions/server/kv_store.tsx
+ create mode 100644 src/test-app-basic.tsx
+ create mode 100644 src/test-cloud.tsx
+ create mode 100644 src/test-icons.tsx
+ create mode 100644 src/test-main.tsx
+ create mode 100644 src/test-player.tsx
+ create mode 100644 src/test-playlist.tsx
+ create mode 100644 src/test-ui.tsx
+ create mode 100644 src/utils/supabase/info.ts
+ create mode 100644 src/utils/supabase/info.tsx
+ create mode 100644 src/vite-env.d.ts
+ create mode 100644 test-app/.gitignore
+ create mode 100644 test-app/App.tsx
+ create mode 100644 test-app/app.json
+ create mode 100644 test-app/assets/android-icon-background.png
+ create mode 100644 test-app/assets/android-icon-foreground.png
+ create mode 100644 test-app/assets/android-icon-monochrome.png
+ create mode 100644 test-app/assets/favicon.png
+ create mode 100644 test-app/assets/icon.png
+ create mode 100644 test-app/assets/splash-icon.png
+ create mode 100644 test-app/index.ts
+ create mode 100644 test-app/package.json
+ create mode 100644 test-app/tsconfig.json
+ create mode 100644 ts_error.txt
+ create mode 100644 ts_out.txt
+ create mode 100644 tsconfig.app.json
+ create mode 100644 tsconfig.json
+ create mode 100644 tsconfig.node.json
+ create mode 100644 vercel_final_out.txt
+ create mode 100644 vercel_out.txt
+ create mode 100644 vercel_prod_out.txt
+ create mode 100644 vercel_version.txt
+ create mode 100644 vite.config.ts
+ create mode 100644 vite_dev_out.txt
+ create mode 100644 vite_output.txt
+Exit: 0 
+--- Git push --- 
+error: src refspec main does not match any
+error: failed to push some refs to 'https://github.com/Akashmathi/mp3-player-final.git'
+Exit: 1 
+--- Done --- 

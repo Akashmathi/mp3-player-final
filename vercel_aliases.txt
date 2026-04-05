@@ -1,0 +1,25 @@
+Fetching aliases under akashmathi777-4357s-projects
+> aliases found under akashmathi777-4357s-projects [709ms]
+  source                                                                 url                                                                      age    
+  mp3-player-final-armx3julf-akashmathi777-4357s-projects.vercel.app     mp3-player-final-akashmathi777-4357s-projects.vercel.app                 41m    
+  mp3-player-final-armx3julf-akashmathi777-4357s-projects.vercel.app     mp3-player-final.vercel.app                                              41m    
+  final-mp3-ndwf5i0lv-akashmathi777-4357s-projects.vercel.app            final-mp3-akashmathi777-4357-akashmathi777-4357s-projects.vercel.app      2h    
+  even-x-1es8-eawylpnje-akashmathi777-4357s-projects.vercel.app          even-x-1es8.vercel.app                                                  159d    
+  even-x-1es8-eawylpnje-akashmathi777-4357s-projects.vercel.app          even-x-1es8-akashmathi777-4357s-projects.vercel.app                     159d    
+  even-x-1es8-eawylpnje-akashmathi777-4357s-projects.vercel.app          even-x-1es8-git-main-akashmathi777-4357s-projects.vercel.app            159d    
+  even-215ejolbf-akashmathi777-4357s-projects.vercel.app                 even-x-akashmathi777-4357s-projects.vercel.app                          159d    
+  even-215ejolbf-akashmathi777-4357s-projects.vercel.app                 even-x-iota.vercel.app                                                  159d    
+  even-215ejolbf-akashmathi777-4357s-projects.vercel.app                 even-x-git-main-akashmathi777-4357s-projects.vercel.app                 159d    
+  v0-toefl-practice-b283i9blr-akashmathi777-4357s-projects.vercel.app    v0-toefl-practice-app.vercel.app                                        194d    
+  v0-toefl-practice-b283i9blr-akashmathi777-4357s-projects.vercel.app    v0-toefl-practice-app-akashmathi777-4357s-projects.vercel.app           194d    
+  final-mp3-ndwf5i0lv-akashmathi777-4357s-projects.vercel.app            final-mp3-akashmathi777-4357s-projects.vercel.app                       231d    
+  final-mp3-ndwf5i0lv-akashmathi777-4357s-projects.vercel.app            final-mp3.vercel.app                                                    231d    
+  final-mp3-k6frjg6cc-akashmathi777-4357s-projects.vercel.app            final-mp3-git-master-akashmathi777-4357s-projects.vercel.app            231d    
+  mp3-player-final-armx3julf-akashmathi777-4357s-projects.vercel.app     mp3-player-final-git-main-akashmathi777-4357s-projects.vercel.app       232d    
+  songs-sequence-m78us4xd9-akashmathi777-4357s-projects.vercel.app       songs-sequence.vercel.app                                               265d    
+  songs-sequence-m78us4xd9-akashmathi777-4357s-projects.vercel.app       songs-sequence-akashmathi777-4357s-projects.vercel.app                  265d    
+  songs-sequence-m78us4xd9-akashmathi777-4357s-projects.vercel.app       songs-sequence-git-main-akashmathi777-4357s-projects.vercel.app         265d    
+  smart-train-alarm-a067nrblu-akashmathi777-4357s-projects.vercel.app    smart-train-alarm.vercel.app                                            266d    
+  smart-train-alarm-a067nrblu-akashmathi777-4357s-projects.vercel.app    smart-train-alarm-akashmathi777-4357s-projects.vercel.app               266d    
+
+> To display the next page run `vercel alias ls --next 1752307003319`

@@ -1,0 +1,19 @@
+﻿=== Renaming master to main ===
+git : fatal: no branch named 'master'
+At C:\Users\akash\Downloads\final-mp3-player\push.ps1:8 char:11
++ $result = git branch -m master main 2>&1
++           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (fatal: no branch named 'master':String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+Exit: 128
+=== Pushing to origin main ===
+branch 'main' set up to track 'origin/main'.
+git : Everything up-to-date
+At C:\Users\akash\Downloads\final-mp3-player\push.ps1:14 char:11
++ $result = git push -u origin main --force 2>&1
++           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Everything up-to-date:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+Exit: 0
