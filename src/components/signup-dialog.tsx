@@ -4,9 +4,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from 
 import { Input } from "./ui/input";
 import { Label } from "./ui/label";
 import { toast } from "sonner";
-import { projectId, publicAnonKey } from "../utils/supabase/info";
-
-const API_BASE = `https://${projectId}.supabase.co/functions/v1/make-server-203f6a42`;
+import { supabase } from "./supabase-client";
 
 export function SignupDialog() {
   const [open, setOpen] = React.useState(false);
@@ -16,16 +14,19 @@ export function SignupDialog() {
   async function onSignup() {
     setLoading(true);
     try {
-      const res = await fetch(`${API_BASE}/signup`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json", Authorization: `Bearer ${publicAnonKey}` },
-        body: JSON.stringify({ name: form.name, email: form.email, password: form.password }),
+      const { data, error } = await supabase.auth.signUp({
+        email: form.email,
+        password: form.password,
+        options: {
+          data: { name: form.name || "" },
+        },
       });
-      if (!res.ok) {
-        const t = await res.text();
-        throw new Error(t);
+      if (error) throw error;
+      if (data?.user) {
+        toast.success("Account created. Check your email to confirm your login.");
+      } else {
+        toast.success("Signup request received. Check your email for next steps.");
       }
-      toast.success("Account created. You can sign in now.");
       setOpen(false);
     } catch (e: any) {
       console.error(e);

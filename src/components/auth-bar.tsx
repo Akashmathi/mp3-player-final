@@ -5,6 +5,7 @@ import { Input } from "./ui/input";
 import { Label } from "./ui/label";
 import { toast } from "sonner";
 import { supabase } from "./supabase-client";
+import { SignupDialog } from "./signup-dialog";
 
 function useSession() {
   const [userEmail, setUserEmail] = React.useState<string | null>(null);
@@ -59,30 +60,33 @@ export function AuthBar() {
           <Button size="sm" variant="outline" onClick={signOut}>Sign out</Button>
         </>
       ) : (
-        <Dialog open={open} onOpenChange={setOpen}>
-          <DialogTrigger asChild>
-            <Button size="sm">Sign in</Button>
-          </DialogTrigger>
-          <DialogContent>
-            <DialogHeader>
-              <DialogTitle>Sign in</DialogTitle>
-            </DialogHeader>
-            <div className="grid gap-3">
-              <div className="grid gap-1">
-                <Label htmlFor="email">Email</Label>
-                <Input id="email" type="email" value={form.email} onChange={(e) => setForm((f) => ({ ...f, email: e.target.value }))} />
+        <div className="flex items-center gap-2">
+          <Dialog open={open} onOpenChange={setOpen}>
+            <DialogTrigger asChild>
+              <Button size="sm">Sign in</Button>
+            </DialogTrigger>
+            <DialogContent>
+              <DialogHeader>
+                <DialogTitle>Sign in</DialogTitle>
+              </DialogHeader>
+              <div className="grid gap-3">
+                <div className="grid gap-1">
+                  <Label htmlFor="email">Email</Label>
+                  <Input id="email" type="email" value={form.email} onChange={(e) => setForm((f) => ({ ...f, email: e.target.value }))} />
+                </div>
+                <div className="grid gap-1">
+                  <Label htmlFor="password">Password</Label>
+                  <Input id="password" type="password" value={form.password} onChange={(e) => setForm((f) => ({ ...f, password: e.target.value }))} />
+                </div>
+                <div className="flex items-center gap-2">
+                  <Button onClick={signIn} disabled={loading}>Sign in</Button>
+                  <Button variant="secondary" onClick={() => setOpen(false)}>Cancel</Button>
+                </div>
               </div>
-              <div className="grid gap-1">
-                <Label htmlFor="password">Password</Label>
-                <Input id="password" type="password" value={form.password} onChange={(e) => setForm((f) => ({ ...f, password: e.target.value }))} />
-              </div>
-              <div className="flex items-center gap-2">
-                <Button onClick={signIn} disabled={loading}>Sign in</Button>
-                <Button variant="secondary" onClick={() => setOpen(false)}>Cancel</Button>
-              </div>
-            </div>
-          </DialogContent>
-        </Dialog>
+            </DialogContent>
+          </Dialog>
+          <SignupDialog />
+        </div>
       )}
     </div>
   );

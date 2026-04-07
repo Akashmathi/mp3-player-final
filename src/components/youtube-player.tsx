@@ -54,7 +54,7 @@ export function YouTubePlayer({
           disablekb: 1,
           fs: 0,
           modestbranding: 1,
-          rel: 0
+          rel: 0,
         },
         events: {
           onReady: (event: any) => {
@@ -88,7 +88,7 @@ export function YouTubePlayer({
         clearInterval(progressInterval.current);
       }
     };
-  }, []);
+  }, [videoId, volume, isPlaying, onDurationChange, onEnded, onReady]);
 
   // Handle Video Change
   useEffect(() => {
