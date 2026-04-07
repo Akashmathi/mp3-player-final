@@ -48,7 +48,7 @@ async function ensureBucket() {
 }
 
 // Health check
-app.get("/make-server-203f6a42/health", (c) =>
+app.get("/health", (c) =>
   c.json({ status: "ok" }),
 );
 
@@ -65,7 +65,7 @@ async function requireUserId(c: any): Promise<string | Response> {
 }
 
 // Upload track (scoped to authenticated user)
-app.post("/make-server-203f6a42/tracks/upload", async (c) => {
+app.post("/tracks/upload", async (c) => {
   try {
     await ensureBucket();
     const uid = await requireUserId(c);
@@ -122,7 +122,7 @@ app.post("/make-server-203f6a42/tracks/upload", async (c) => {
 });
 
 // Save playlist order (scoped to authenticated user)
-app.post("/make-server-203f6a42/playlist/save", async (c) => {
+app.post("/playlist/save", async (c) => {
   try {
     const uid = await requireUserId(c);
     if (uid instanceof Response) return uid;
@@ -137,7 +137,7 @@ app.post("/make-server-203f6a42/playlist/save", async (c) => {
 });
 
 // Load playlist (scoped to authenticated user)
-app.get("/make-server-203f6a42/playlist/load", async (c) => {
+app.get("/playlist/load", async (c) => {
   try {
     const uid = await requireUserId(c);
     if (uid instanceof Response) return uid;
@@ -164,7 +164,7 @@ app.get("/make-server-203f6a42/playlist/load", async (c) => {
 });
 
 // Sign up (admin create user with auto-confirm)
-app.post("/make-server-203f6a42/signup", async (c) => {
+app.post("/signup", async (c) => {
   try {
     const { email, password, name } = await c.req.json<{ email: string; password: string; name?: string }>();
     if (!email || !password) return c.json({ error: "Missing email or password" }, 400);
@@ -180,6 +180,98 @@ app.post("/make-server-203f6a42/signup", async (c) => {
     return c.json({ ok: true, userId: data.user?.id });
   } catch (e) {
     console.log("signup error", e);
+    return c.json({ error: String(e) }, 500);
+  }
+});
+
+// Cloud sync endpoints
+app.post("/init", async (c) => {
+  try {
+    await ensureBucket();
+    return c.json({ ok: true });
+  } catch (e) {
+    console.error("init error:", e);
+    return c.json({ error: String(e) }, 500);
+  }
+});
+
+app.post("/upload", async (c) => {
+  try {
+    await ensureBucket();
+    const uid = await requireUserId(c);
+    if (uid instanceof Response) return uid;
+
+    const supabase = srClient();
+    const form = await c.req.formData();
+    const deviceId = form.get("deviceId")?.toString();
+    const id = form.get("id")?.toString();
+    const name = form.get("name")?.toString() || "file";
+    const file = form.get("file") as File | null;
+
+    if (!deviceId || !id || !file) {
+      return c.json({ error: "Missing deviceId, id or file" }, 400);
+    }
+
+    const safeName = name.replace(/[^a-zA-Z0-9_.-]/g, "_");
+    const objectPath = `${deviceId}/${id}__${safeName}`;
+    const arrayBuffer = await file.arrayBuffer();
+    const uint8Array = new Uint8Array(arrayBuffer);
+
+    const { error: upErr } = await supabase.storage
+      .from(BUCKET)
+      .upload(objectPath, uint8Array, {
+        contentType: file.type || "application/octet-stream",
+        upsert: true,
+      });
+
+    if (upErr) {
+      console.error("Upload error:", upErr);
+      return c.json({ error: upErr.message || String(upErr) }, 500);
+    }
+
+    return c.json({ ok: true });
+  } catch (e) {
+    console.error("upload error:", e);
+    return c.json({ error: String(e) }, 500);
+  }
+});
+
+app.get("/list", async (c) => {
+  try {
+    const uid = await requireUserId(c);
+    if (uid instanceof Response) return uid;
+
+    const deviceId = c.req.query("deviceId");
+    if (!deviceId) {
+      return c.json({ error: "Missing deviceId" }, 400);
+    }
+
+    const supabase = srClient();
+    const { data: files, error } = await supabase.storage.from(BUCKET).list(deviceId, { limit: 1000 });
+    if (error) throw error;
+
+    const items = await Promise.all(
+      (files || [])
+        .filter((f) => !f.name.endsWith("/"))
+        .map(async (f) => {
+          const [idPart, ...rest] = f.name.split("__");
+          const originalName = decodeURIComponent(rest.join("__") || "file");
+          const path = `${deviceId}/${f.name}`;
+          const { data, error: e2 } = await supabase.storage.from(BUCKET).createSignedUrl(path, 60 * 60 * 24 * 7);
+          if (e2) throw e2;
+          return {
+            id: idPart,
+            name: originalName,
+            url: data.signedUrl,
+            size: f.metadata?.size || 0,
+            createdAt: new Date(f.created_at).getTime()
+          };
+        })
+    );
+
+    return c.json({ ok: true, items });
+  } catch (e) {
+    console.error("list error:", e);
     return c.json({ error: String(e) }, 500);
   }
 });
