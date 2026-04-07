@@ -1,0 +1,1 @@
+﻿705f46d Use npm ci to force clean install and fix React 527 version mismatch 68fdc23 Add vercel.json to force clean production rebuild and fix blank screen ab1f7fb Pin exact React versions to fix Error 527

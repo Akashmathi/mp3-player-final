@@ -32,16 +32,51 @@ export const resolveYouTubeId = async (title: string, artist: string): Promise<s
   try {
     const searchQuery = `${title} ${artist} official audio`;
     const searchUrl = `${CORS_PROXY}${encodeURIComponent(`https://www.youtube.com/results?search_query=${encodeURIComponent(searchQuery)}`)}`;
-    
+
     const response = await axios.get(searchUrl, {
-      timeout: 10000
+      timeout: 10000,
+      headers: {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
+      }
     });
 
-    // Extract the first videoId from the search results HTML
-    const videoIdMatch = response.data.match(/"videoId":"([^"]+)"/);
-    return videoIdMatch ? videoIdMatch[1] : null;
+    // Try multiple patterns to extract video ID
+    const patterns = [
+      /"videoId":"([^"]+)"/g,
+      /\/watch\?v=([^"&]+)/g,
+      /"url":"\/watch\?v=([^"]+)"/g,
+      /data-video-id="([^"]+)"/g
+    ];
+
+    for (const pattern of patterns) {
+      const matches = response.data.match(pattern);
+      if (matches) {
+        for (const match of matches) {
+          const videoIdMatch = match.match(/([^"]+)$/);
+          if (videoIdMatch && videoIdMatch[1] && videoIdMatch[1].length === 11) {
+            return videoIdMatch[1];
+          }
+        }
+      }
+    }
+
+    return null;
   } catch (e) {
     console.error("YouTube resolution failed:", e);
-    return null;
+    // Fallback: try direct YouTube search without proxy
+    try {
+      const fallbackResponse = await axios.get(`https://www.youtube.com/results?search_query=${encodeURIComponent(`${title} ${artist} official audio`)}`, {
+        timeout: 5000,
+        headers: {
+          'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
+        }
+      });
+
+      const videoIdMatch = fallbackResponse.data.match(/\/watch\?v=([^"&]+)/);
+      return videoIdMatch ? videoIdMatch[1] : null;
+    } catch (fallbackError) {
+      console.error("Fallback YouTube resolution also failed:", fallbackError);
+      return null;
+    }
   }
 };

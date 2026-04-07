@@ -1,0 +1,5 @@
+﻿commit ab1f7fb124a4b3dcc7a9ece63d32232bdc167971
+Author: Akashmathi <akashmathi777@gmail.com>
+Date:   Mon Apr 6 00:16:16 2026 +0530
+
+    Pin exact React versions to fix Error 527

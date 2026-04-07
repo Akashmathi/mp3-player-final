@@ -1,0 +1,26 @@
+﻿
+> final-mp3-player@0.0.0 build
+> vite build
+
+node.exe : 'vite' is not 
+recognized as an internal 
+or external command,
+At C:\Users\akash\AppData\R
+oaming\npm\npm.ps1:24 
+char:5
++     & "node$exe"  "$based
+ir/node_modules/npm/bin/npm
+-cli.js" $args
++     ~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~
+    + CategoryInfo         
+     : NotSpecified: ('vi  
+  te' is not r...ternal    
+ command,:String) [], R    
+emoteException
+    + FullyQualifiedErrorI 
+   d : NativeCommandError
+ 
+operable program or batch 
+file.

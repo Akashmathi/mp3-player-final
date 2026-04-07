@@ -1,0 +1,3 @@
+﻿C:/Users/akash/AppData/Roaming/com.vercel.cli/auth.json: not found
+C:/Users/akash/AppData/Local/com.vercel.cli/auth.json: not found
+C:/Users/akash/.vercel/auth.json: not found

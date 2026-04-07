@@ -1,0 +1,3 @@
+﻿ab1f7fb Pin exact React versions to fix Error 527
+130fa33 Fix Error 427
+05ec121 Fix production blank screen: replace DndProvider, polyfill process.env, dynamic import
